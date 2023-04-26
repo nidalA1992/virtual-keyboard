@@ -1,1 +1,1 @@
-console.log('script');
+import {createButton} from "./create-button";
