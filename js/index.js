@@ -1,1 +1,1 @@
-import {createButton} from "./create-button";
+const app = document.getElementById('app');
