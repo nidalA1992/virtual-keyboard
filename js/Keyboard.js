@@ -18,4 +18,16 @@ export class Keyboard {
     });
 
   }
+
+  keydown(code) {
+    if (code in this.keys) {
+      this.keys[code].keydown();
+    }
+  }
+
+  keyup(code) {
+    if (code in this.keys) {
+      this.keys[code].keyup();
+    }
+  }
 }
