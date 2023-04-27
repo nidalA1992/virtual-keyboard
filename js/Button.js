@@ -4,22 +4,22 @@ export class Button {
     this.element.setAttribute('data-key', value);
     this.element.textContent = value;
 
-    this.active = this.active.bind(this);
-    this.deactive = this.deactive.bind(this);
+    this.keydown = this.keydown.bind(this);
+    this.keyup = this.keyup.bind(this);
   }
 
-  active() {
+  keydown() {
     this.element.classList.add('active');
   }
 
-  deactive() {
+  keyup() {
     this.element.classList.remove('active');
   }
 
   init(container) {
     container.append(this.element);
 
-    this.element.addEventListener('mousedown', this.active);
-    this.element.addEventListener('mouseup', this.deactive);
+    this.element.addEventListener('mousedown', this.keydown);
+    this.element.addEventListener('mouseup', this.keyup);
   }
 }
