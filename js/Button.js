@@ -1,25 +1,25 @@
 export class Button {
   constructor(value) {
-    this.button = document.createElement('button');
-    this.button.setAttribute('data-key', value);
-    this.button.textContent = value;
+    this.element = document.createElement('button');
+    this.element.setAttribute('data-key', value);
+    this.element.textContent = value;
 
     this.active = this.active.bind(this);
     this.deactive = this.deactive.bind(this);
   }
 
   active() {
-    this.button.classList.add('active');
+    this.element.classList.add('active');
   }
 
   deactive() {
-    this.button.classList.remove('active');
+    this.element.classList.remove('active');
   }
 
   init(container) {
-    container.append(this.button);
+    container.append(this.element);
 
-    this.button.addEventListener('mousedown', this.active);
-    this.button.addEventListener('mouseup', this.deactive);
+    this.element.addEventListener('mousedown', this.active);
+    this.element.addEventListener('mouseup', this.deactive);
   }
 }
