@@ -1,4 +1,4 @@
-import {keys} from "./keys.js";
+import {keys} from "../keys.js";
 import {Button} from "./Button.js";
 
 export class Keyboard {
