@@ -4,7 +4,7 @@ import {CapsButton} from "./CapsButton.js";
 import {ShiftButton} from "./ShiftButton.js";
 
 export class Keyboard {
-  en = true;
+  en = false;
   shift = false;
   caps = false;
 
@@ -12,7 +12,6 @@ export class Keyboard {
     this.keys = {};
 
     this.display = document.getElementById('text');
-
 
     this.eventKeyDown = this.eventKeyDown.bind(this);
     this.eventKeyUp = this.eventKeyUp.bind(this);
@@ -27,24 +26,21 @@ export class Keyboard {
     this.en = options?.en || this.en;
     this.shift = options?.shift || this.shift;
     this.caps = options?.caps || this.caps;
-    // this.keys = {};
-
 
     keys.forEach(row => {
       row.forEach(key => {
         if (key.value) {
 
-          switch (key.value) {
-            case 'CapsLock':
-              this.keys[key.value] = new CapsButton('Caps Lock', this, this.caps);
+          switch (key.code) {
+            case 20:
+              this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
               break;
 
-            case 'ShiftLeft':
-            case 'ShiftRight':
-              this.keys[key.value] = new ShiftButton('Shift', this, this.shift);
+            case 16:
+              this.keys[key.code] = new ShiftButton('Shift', this, this.shift);
           }
 
-          this.keys[key.value]?.init(this.container);
+          this.keys[key.code]?.init(this.container);
         } else {
 
           let i;
@@ -62,8 +58,8 @@ export class Keyboard {
             i = i.toLowerCase();
           }
 
-          this.keys[i] = new LetterButton(i);
-          this.keys[i].init(this.container);
+          this.keys[key.code] = new LetterButton(i);
+          this.keys[key.code].init(this.container);
 
         }
       });
@@ -82,26 +78,12 @@ export class Keyboard {
 
   eventKeyDown(e) {
     e.preventDefault();
-    let code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
-
-    if (code.length > 1) {
-      this.keydown(code);
-      return;
-    }
-    code = this.caps ? code.toUpperCase() : code.toLowerCase();
-    this.keydown(this.shift ? code.toLowerCase() : code);
+    this.keydown(e.keyCode);
   }
 
   eventKeyUp(e) {
     e.preventDefault();
-    let code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
-
-    if (code.length > 1) {
-      this.keyup(code);
-      return;
-    }
-    code = this.caps ? code.toUpperCase() : code.toLowerCase();
-    this.keyup(this.shift ? code.toLowerCase() : code);
+    this.keyup(e.keyCode);
   }
 
   keydown(code) {

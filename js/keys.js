@@ -3,195 +3,201 @@
 export const keys = [
   [
     {
-      en: '`', shEn: '~', ru: 'ё', shRu: 'Ё'
+      en: '`', shEn: '~', ru: 'ё', shRu: 'Ё', code: 192
     },
     {
-      en: '1', shEn: '!', ru: '1', shRu: '!'
+      en: '0', shEn: ')', ru: '0', shRu: ')', code: 48
     },
     {
-      en: '2', shEn: '@', ru: '2', shRu: '"'
+      en: '1', shEn: '!', ru: '1', shRu: '!', code: 49
     },
     {
-      en: '3', shEn: '#', ru: '3', shRu: '№'
+      en: '2', shEn: '@', ru: '2', shRu: '"', code: 50
     },
     {
-      en: '4', shEn: '$', ru: '4', shRu: ';'
+      en: '3', shEn: '#', ru: '3', shRu: '№', code: 51
     },
     {
-      en: '5', shEn: '%', ru: '5', shRu: '%'
+      en: '4', shEn: '$', ru: '4', shRu: ';', code: 52
     },
     {
-      en: '6', shEn: '^', ru: '6', shRu: ':'
+      en: '5', shEn: '%', ru: '5', shRu: '%', code: 53
     },
     {
-      en: '7', shEn: '&', ru: '7', shRu: '?'
+      en: '6', shEn: '^', ru: '6', shRu: ':', code: 54
     },
     {
-      en: '8', shEn: '*', ru: '8', shRu: '*'
+      en: '7', shEn: '&', ru: '7', shRu: '?', code: 55
     },
     {
-      en: '9', shEn: '(', ru: '9', shRu: ')'
+      en: '8', shEn: '*', ru: '8', shRu: '*', code: 56
     },
     {
-      en: '-', shEn: '_', ru: '-', shRu: '_'
+      en: '9', shEn: '(', ru: '9', shRu: '(', code: 57
     },
     {
-      en: '=', shEn: '+', ru: '=', shRu: '+'
+      en: '-', shEn: '_', ru: '-', shRu: '_', code: 189
     },
     {
-      value: 'Backspace'
-    },
-  ],
-  [
-    {
-      value: 'Tab'
+      en: '=', shEn: '+', ru: '=', shRu: '+', code: 107
     },
     {
-      en: 'q', shEn: 'Q', ru: 'й', shRu: 'Й'
-    },
-    {
-      en: 'w', shEn: 'W', ru: 'ц', shRu: 'Ц'
-    },
-    {
-      en: 'e', shEn: 'E', ru: 'у', shRu: 'У'
-    },
-    {
-      en: 'r', shEn: 'R', ru: 'к', shRu: 'К'
-    },
-    {
-      en: 't', shEn: 'T', ru: 'е', shRu: 'Е'
-    },
-    {
-      en: 'y', shEn: 'Y', ru: 'н', shRu: 'Н'
-    },
-    {
-      en: 'u', shEn: 'U', ru: 'г', shRu: 'Г'
-    },
-    {
-      en: 'i', shEn: 'I', ru: 'ш', shRu: 'Ш'
-    },
-    {
-      en: 'o', shEn: 'O', ru: 'щ', shRu: 'Щ'
-    },
-    {
-      en: 'p', shEn: 'P', ru: 'з', shRu: 'З'
-    },
-    {
-      en: '[', shEn: '{', ru: 'х', shRu: 'Х'
-    },
-    {
-      en: ']', shEn: '}', ru: 'ъ', shRu: 'Ъ'
-    },
-    {
-      en: '\\', shEn: '|', ru: '\\', shRu: '/'
+      value: 'Backspace', code: 9
     },
   ],
   [
     {
-      value: 'CapsLock'
+      value: 'Tab', code: 9
     },
     {
-      en: 'a', shEn: 'A', ru: 'ф', shRu: 'Ф'
+      en: 'q', shEn: 'Q', ru: 'й', shRu: 'Й', code: 81
     },
     {
-      en: 's', shEn: 'S', ru: 'ы', shRu: 'Ы'
+      en: 'w', shEn: 'W', ru: 'ц', shRu: 'Ц', code: 87
     },
     {
-      en: 'd', shEn: 'D', ru: 'в', shRu: 'В'
+      en: 'e', shEn: 'E', ru: 'у', shRu: 'У', code: 69
     },
     {
-      en: 'f', shEn: 'F', ru: 'а', shRu: 'А'
+      en: 'r', shEn: 'R', ru: 'к', shRu: 'К', code: 82
     },
     {
-      en: 'g', shEn: 'G', ru: 'п', shRu: 'П'
+      en: 't', shEn: 'T', ru: 'е', shRu: 'Е', code: 84
     },
     {
-      en: 'h', shEn: 'H', ru: 'р', shRu: 'Р'
+      en: 'y', shEn: 'Y', ru: 'н', shRu: 'Н', code: 89
     },
     {
-      en: 'j', shEn: 'J', ru: 'о', shRu: 'О'
+      en: 'u', shEn: 'U', ru: 'г', shRu: 'Г', code: 85
     },
     {
-      en: 'k', shEn: 'K', ru: 'л', shRu: 'Л'
+      en: 'i', shEn: 'I', ru: 'ш', shRu: 'Ш', code: 73
     },
     {
-      en: 'l', shEn: 'L', ru: 'д', shRu: 'Д'
+      en: 'o', shEn: 'O', ru: 'щ', shRu: 'Щ', code: 79
     },
     {
-      en: ';', shEn: ':', ru: 'ж', shRu: 'Ж'
+      en: 'p', shEn: 'P', ru: 'з', shRu: 'З', code: 80
     },
     {
-      en: '\'', shEn: '"', ru: 'э', shRu: 'Э'
+      en: '[', shEn: '{', ru: 'х', shRu: 'Х', code: 219
     },
     {
-      value: 'Enter'
-    },
-  ],
-  [
-    {
-      value: 'ShiftLeft'
+      en: ']', shEn: '}', ru: 'ъ', shRu: 'Ъ', code: 221
     },
     {
-      en: 'z', shEn: 'Z', ru: 'я', shRu: 'Я'
-    },
-    {
-      en: 'x', shEn: 'X', ru: 'ч', shRu: 'Ч'
-    },
-    {
-      en: 'c', shEn: 'C', ru: 'с', shRu: 'С'
-    },
-    {
-      en: 'v', shEn: 'V', ru: 'м', shRu: 'М'
-    },
-    {
-      en: 'b', shEn: 'B', ru: 'и', shRu: 'И'
-    },
-    {
-      en: 'n', shEn: 'N', ru: 'т', shRu: 'Т'
-    },
-    {
-      en: 'm', shEn: 'M', ru: 'ь', shRu: 'Ь'
-    },
-    {
-      en: ',', shEn: '<', ru: 'б', shRu: 'Б'
-    },
-    {
-      en: '.', shEn: '>', ru: 'ю', shRu: 'Ю'
-    },
-    {
-      en: '/', shEn: '?', ru: '.', shRu: ','
-    },
-    {
-      value: 'ShiftRight'
-    },
-    {
-      value: 'ArrowUp'
+      en: '\\', shEn: '|', ru: '\\', shRu: '/', code: 220
     },
   ],
   [
     {
-      value: 'ControlLeft'
+      value: 'CapsLock', code: 20
     },
     {
-      value: 'MetaLeft'
+      en: 'a', shEn: 'A', ru: 'ф', shRu: 'Ф', code: 65
     },
     {
-      value: 'AltLeft'
+      en: 's', shEn: 'S', ru: 'ы', shRu: 'Ы', code: 83,
     },
     {
-      value: 'Space'
+      en: 'd', shEn: 'D', ru: 'в', shRu: 'В', code: 68
     },
     {
-      value: 'AltRight'
+      en: 'f', shEn: 'F', ru: 'а', shRu: 'А', code: 70
     },
     {
-      value: 'ArrowLeft'
+      en: 'g', shEn: 'G', ru: 'п', shRu: 'П', code: 71
     },
     {
-      value: 'ArrowDown'
+      en: 'h', shEn: 'H', ru: 'р', shRu: 'Р', code: 72
     },
     {
-      value: 'ArrowRight'
+      en: 'j', shEn: 'J', ru: 'о', shRu: 'О', code: 74
+    },
+    {
+      en: 'k', shEn: 'K', ru: 'л', shRu: 'Л', code: 75
+    },
+    {
+      en: 'l', shEn: 'L', ru: 'д', shRu: 'Д', code: 76
+    },
+    {
+      en: ';', shEn: ':', ru: 'ж', shRu: 'Ж', code: 186
+    },
+    {
+      en: '\'', shEn: '"', ru: 'э', shRu: 'Э', code: 222
+    },
+    {
+      value: 'Enter', code: 13
+    },
+  ],
+  [
+    {
+      value: 'ShiftLeft', code: 16
+    },
+    {
+      en: 'z', shEn: 'Z', ru: 'я', shRu: 'Я', code: 90
+    },
+    {
+      en: 'x', shEn: 'X', ru: 'ч', shRu: 'Ч', code: 88
+    },
+    {
+      en: 'c', shEn: 'C', ru: 'с', shRu: 'С', code: 67
+    },
+    {
+      en: 'v', shEn: 'V', ru: 'м', shRu: 'М', code: 86
+    },
+    {
+      en: 'b', shEn: 'B', ru: 'и', shRu: 'И', code: 66
+    },
+    {
+      en: 'n', shEn: 'N', ru: 'т', shRu: 'Т', code: 78
+    },
+    {
+      en: 'm', shEn: 'M', ru: 'ь', shRu: 'Ь', code: 77
+    },
+    {
+      en: ',', shEn: '<', ru: 'б', shRu: 'Б', code: 188
+    },
+    {
+      en: '.', shEn: '>', ru: 'ю', shRu: 'Ю', code: 190
+    },
+    {
+      en: '/', shEn: '?', ru: '.', shRu: ',', code: 191
+    },
+    {
+      value: 'ShiftRight', code: 16
+    },
+    {
+      value: 'ArrowUp', code: 38
+    },
+  ],
+  [
+    {
+      value: 'ControlLeft', code: 17
+    },
+    {
+      value: 'MetaLeft', code: 91
+    },
+    {
+      value: 'AltLeft', code: 18
+    },
+    {
+      value: 'Space', code: 32
+    },
+    {
+      value: 'AltRight', code: 18
+    },
+    {
+      value: 'ControlRight', code: 17
+    },
+    {
+      value: 'ArrowLeft', code: 37
+    },
+    {
+      value: 'ArrowDown', code: 40
+    },
+    {
+      value: 'ArrowRight', code: 39
     },
   ]
 ]
