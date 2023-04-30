@@ -1,5 +1,5 @@
 import {keys} from "../keys.js";
-import {Button} from "./Button.js";
+import {LetterButton} from "./LetterButton.js";
 import {CapsButton} from "./CapsButton.js";
 
 export class Keyboard {
@@ -17,15 +17,27 @@ export class Keyboard {
     this.en = options?.en || this.en;
     this.shift = options?.shift || this.shift;
     this.caps = options?.caps || this.caps;
+    this.keys = {};
 
-    keys.forEach(i => {
-      i[this.layout].forEach(i => {
-        if (i === 'CapsLock') {
-          this.keys[i] = new CapsButton('Caps Lock', this, this.caps);
+    keys.forEach(row => {
+      row.forEach(key => {
+        if (key.value) {
+
+          switch (key.value) {
+            case 'CapsLock':
+              this.keys[key.value] = new CapsButton('Caps Lock', this, this.caps);
+              break;
+          }
+
+          this.keys[key.value]?.init(this.container);
         } else {
-          this.keys[i] = new Button(this.caps ? i.toUpperCase() : i);
+          const i = this.en ? key.en : key.ru;
+
+          this.keys[i] = new LetterButton(key);
+          this.caps ? this.keys[i].toUpperCase() : this.keys[i].toLowerCase()
+          this.keys[i].init(this.container);
         }
-        this.keys[i].init(this.container);
+
       });
 
       this.container.append(document.createElement('br'));

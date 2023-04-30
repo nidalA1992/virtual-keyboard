@@ -1,10 +1,18 @@
-import {Button} from "./Button.js";
+import {AbstractButton} from "./AbstractButton.js";
 
-export class CapsButton extends Button {
+export class CapsButton extends AbstractButton {
   constructor(value, keyboard, isActive) {
-    super(value);
+    super();
+
+    this.element = document.createElement('button');
+    this.element.setAttribute('data-key', value);
+    this.element.textContent = value;
+
     this.keyboard = keyboard;
+
     this.element.classList.toggle('active', isActive);
+    this.keydown = this.keydown.bind(this);
+    this.keyup = this.keyup.bind(this);
   }
 
   keydown() {
@@ -15,5 +23,12 @@ export class CapsButton extends Button {
 
   keyup() {
 
+  }
+
+  init(container) {
+    container.append(this.element);
+
+    this.element.addEventListener('mousedown', this.keydown);
+    this.element.addEventListener('mouseup', this.keyup);
   }
 }

@@ -1,3 +1,8 @@
 body {
     background-color: tomato;
 }
+
+.active {
+    background-color: tomato;
+    color: white;
+}

@@ -5,9 +5,12 @@ export class LetterButton extends AbstractButton {
     super();
     this.value = value;
     this.upper = false;
+
+    console.log(this.value)
+
     this.element = document.createElement('button');
-    this.element.setAttribute('data-key', value);
-    this.element.textContent = value;
+    this.element.setAttribute('data-key', value.en);
+    this.element.textContent = value.en;
 
     this.keydown = this.keydown.bind(this);
     this.keyup = this.keyup.bind(this);
@@ -23,16 +26,14 @@ export class LetterButton extends AbstractButton {
 
   toUpperCase() {
     this.upper = true;
-    this.value = this.value.toUpperCase();
-    this.element.textContent = this.value;
-    this.element.setAttribute('data-key', this.value);
+    this.element.textContent = this.element.textContent.toUpperCase();
+    this.element.setAttribute('data-key', this.element.textContent.toUpperCase());
   }
 
   toLowerCase() {
     this.upper = false;
-    this.value = this.value.toLowerCase();
-    this.element.textContent = this.value;
-    this.element.setAttribute('data-key', this.value);
+    this.element.textContent = this.element.textContent.toLowerCase();
+    this.element.setAttribute('data-key', this.element.textContent.toLowerCase());
   }
 
   keydown() {
