@@ -5,7 +5,7 @@ body {
 #app {
     display: flex;
     flex-direction: column;
-    max-width: 388px;
+    max-width: 425px;
 }
 
 #app > * {
@@ -17,7 +17,8 @@ body {
 }
 
 .letter-button {
-    max-width: 30px;
+    flex-grow: 0 !important;
+    width: 25px;
 }
 
 .space-button {

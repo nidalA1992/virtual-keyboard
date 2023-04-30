@@ -63,7 +63,7 @@ export default class Keyboard {
         if (key.value) {
           switch (key.code) {
             case TAB_BUTTON:
-              this.keys[key.code] = new TabButton('Tab');
+              this.keys[key.code] = new TabButton('Tab ');
               break;
             case SPACE_BUTTON:
               this.keys[key.code] = new SpaceButton(' ');

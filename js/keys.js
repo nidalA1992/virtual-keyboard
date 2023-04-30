@@ -169,7 +169,7 @@ const keys = [
       value: 'ShiftRight', code: 16,
     },
     {
-      value: 'ArrowUp', code: 38,
+      en: '🠑', shEn: '🠑', ru: '🠑', shRu: '🠑', code: 38,
     },
   ],
   [
@@ -192,13 +192,13 @@ const keys = [
       value: 'ControlRight', code: 17,
     },
     {
-      value: 'ArrowLeft', code: 37,
+      en: '🠐', shEn: '🠐', ru: '🠐', shRu: '🠐', code: 37,
     },
     {
-      value: 'ArrowDown', code: 40,
+      en: '🠓', shEn: '🠓', ru: '🠓', shRu: '🠓', code: 40,
     },
     {
-      value: 'ArrowRight', code: 39,
+      en: '🠒', shEn: '🠒', ru: '🠒', shRu: '🠒', code: 39,
     },
   ],
 ];
