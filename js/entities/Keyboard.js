@@ -82,14 +82,26 @@ export class Keyboard {
 
   eventKeyDown(e) {
     e.preventDefault();
-    const code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
-    this.keydown(code);
+    let code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
+
+    if (code.length > 1) {
+      this.keydown(code);
+      return;
+    }
+    code = this.caps ? code.toUpperCase() : code.toLowerCase();
+    this.keydown(this.shift ? code.toLowerCase() : code);
   }
 
   eventKeyUp(e) {
     e.preventDefault();
-    const code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
-    this.keyup(code);
+    let code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
+
+    if (code.length > 1) {
+      this.keyup(code);
+      return;
+    }
+    code = this.caps ? code.toUpperCase() : code.toLowerCase();
+    this.keyup(this.shift ? code.toLowerCase() : code);
   }
 
   keydown(code) {

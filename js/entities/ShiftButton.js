@@ -14,7 +14,7 @@ export class ShiftButton extends AbstractButton {
   }
 
   keydown() {
-    console.log(this.element)
+    // console.log(this.element)
     if (this.keyboard.shift) {
       return;
     }
