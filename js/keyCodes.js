@@ -7,3 +7,4 @@ export const DELETE_BUTTON = 46;
 export const ENTER_BUTTON = 13;
 export const SPACE_BUTTON = 32;
 export const TAB_BUTTON = 9;
+export const META_BUTTON = 91;

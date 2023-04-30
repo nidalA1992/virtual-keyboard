@@ -169,7 +169,10 @@ const keys = [
       value: 'ShiftRight', code: 16,
     },
     {
-      en: '🠑', shEn: '🠑', ru: '🠑', shRu: '🠑', code: 38,
+      en: '↑', shEn: '↑', ru: '↑', shRu: '↑', code: 38,
+    },
+    {
+      en: '', shEn: '', ru: '', shRu: '', code: 999,
     },
   ],
   [
@@ -192,13 +195,13 @@ const keys = [
       value: 'ControlRight', code: 17,
     },
     {
-      en: '🠐', shEn: '🠐', ru: '🠐', shRu: '🠐', code: 37,
+      en: '←', shEn: '←', ru: '←', shRu: '←', code: 37,
     },
     {
-      en: '🠓', shEn: '🠓', ru: '🠓', shRu: '🠓', code: 40,
+      en: '↓', shEn: '↓', ru: '↓', shRu: '↓', code: 40,
     },
     {
-      en: '🠒', shEn: '🠒', ru: '🠒', shRu: '🠒', code: 39,
+      en: '→', shEn: '→', ru: '→', shRu: '→', code: 39,
     },
   ],
 ];

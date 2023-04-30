@@ -13,6 +13,6 @@ export default class CapsButton extends BehaviorButton {
   }
 
   keyup() {
-    // super.keyup();
+    return this;
   }
 }

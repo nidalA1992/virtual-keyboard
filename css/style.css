@@ -25,6 +25,10 @@ body {
     flex-grow: 6 !important;
 }
 
+.enter-button {
+    flex-grow: 3 !important;
+}
+
 .active {
     background-color: tomato;
     color: white;

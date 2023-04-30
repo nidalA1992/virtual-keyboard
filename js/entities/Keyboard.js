@@ -10,6 +10,7 @@ import {
   CONTROL_BUTTON,
   DELETE_BUTTON,
   ENTER_BUTTON,
+  META_BUTTON,
   SHIFT,
   SPACE_BUTTON,
   TAB_BUTTON,
@@ -20,6 +21,7 @@ import DeleteButton from "./DeleteButton.js";
 import EnterButton from "./EnterButton.js";
 import SpaceButton from "./SpaceButton.js";
 import TabButton from "./TabButton.js";
+import MetaButton from "./MetaButton.js";
 
 export default class Keyboard {
   en = true;
@@ -62,6 +64,9 @@ export default class Keyboard {
       row.forEach((key) => {
         if (key.value) {
           switch (key.code) {
+            case META_BUTTON:
+              this.keys[key.code] = new MetaButton('Meta');
+              break;
             case TAB_BUTTON:
               this.keys[key.code] = new TabButton('Tab ');
               break;
@@ -130,6 +135,11 @@ export default class Keyboard {
   }
 
   eventKeyDown(e) {
+    if (e.code === 'MetaLeft' || e.code === 'MetaRight') {
+      this.keydown(e.keyCode);
+      return;
+    }
+
     if (e.code === 'Delete') {
       this.keydown(e.keyCode);
       return;
@@ -152,6 +162,10 @@ export default class Keyboard {
 
   eventKeyUp(e) {
     e.preventDefault();
+    // if (e.code === 'MetaLeft' || e.code === 'MetaRight') {
+    //   this.keyup(e.keyCode);
+    //   return;
+    // }
 
     if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
       this.keyup(e.code);
