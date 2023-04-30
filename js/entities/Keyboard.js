@@ -9,11 +9,13 @@ import {
   CAPS_LOCK,
   CONTROL_BUTTON,
   DELETE_BUTTON,
+  ENTER_BUTTON,
   SHIFT,
 } from "../keyCodes.js";
 import ControlButton from "./ControlButton.js";
 import AltButton from "./AltButton.js";
 import DeleteButton from "./DeleteButton.js";
+import EnterButton from "./EnterButton.js";
 
 export default class Keyboard {
   en = true;
@@ -52,13 +54,16 @@ export default class Keyboard {
     this.caps = options?.caps || this.caps;
 
     keys.forEach((row) => {
+      const wrapper = document.createElement('div');
       row.forEach((key) => {
         if (key.value) {
           switch (key.code) {
+            case ENTER_BUTTON:
+              this.keys[key.code] = new EnterButton('Enter');
+              break;
             case DELETE_BUTTON:
               this.keys[key.code] = new DeleteButton('Del');
               break;
-
             case CAPS_LOCK:
               this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
               break;
@@ -73,19 +78,19 @@ export default class Keyboard {
 
             case CONTROL_BUTTON:
               this.keys[key.value] = new ControlButton('Ctrl', this);
-              this.keys[key.value]?.init(this.container);
+              this.keys[key.value]?.init(wrapper);
               return;
 
             case ALT_BUTTON:
               this.keys[key.value] = new AltButton('Alt', this);
-              this.keys[key.value]?.init(this.container);
+              this.keys[key.value]?.init(wrapper);
               return;
 
             default:
               break;
           }
 
-          this.keys[key.code]?.init(this.container);
+          this.keys[key.code]?.init(wrapper);
         } else {
           let i;
           if (this.shift) {
@@ -103,11 +108,11 @@ export default class Keyboard {
           }
 
           this.keys[key.code] = new LetterButton(i);
-          this.keys[key.code].init(this.container);
+          this.keys[key.code].init(wrapper);
         }
       });
 
-      this.container.append(document.createElement('br'));
+      this.container.append(wrapper);
     });
 
     window.addEventListener('keydown', this.eventKeyDown);

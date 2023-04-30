@@ -9,6 +9,7 @@ export default class LetterButton extends AbstractButton {
     this.element = document.createElement('button');
     this.element.setAttribute('data-key', value);
     this.element.textContent = value;
+    this.element.classList.add('letter-button');
 
     this.keydown = this.keydown.bind(this);
     this.keyup = this.keyup.bind(this);

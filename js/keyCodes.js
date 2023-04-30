@@ -4,3 +4,4 @@ export const BACKSPACE = 8;
 export const CONTROL_BUTTON = 17;
 export const ALT_BUTTON = 18;
 export const DELETE_BUTTON = 46;
+export const ENTER_BUTTON = 13;

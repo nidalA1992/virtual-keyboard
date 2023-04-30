@@ -4,7 +4,6 @@ export default class BackspaceButton extends BehaviorButton {
   keydown() {
     this.element.classList.add('active');
     document.getElementById('text').value = document.getElementById('text').value.substring(0, document.getElementById('text').value.length - 1);
-    // document.getElementById('text').value = document.getElementById('text').value + '\n';
   }
 
   keyup() {

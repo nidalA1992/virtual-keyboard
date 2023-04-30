@@ -86,6 +86,9 @@ const keys = [
     {
       en: '\\', shEn: '|', ru: '\\', shRu: '/', code: 220,
     },
+    {
+      value: 'Delete', code: 46,
+    },
   ],
   [
     {
@@ -196,9 +199,6 @@ const keys = [
     },
     {
       value: 'ArrowRight', code: 39,
-    },
-    {
-      value: 'Delete', code: 46,
     },
   ],
 ];

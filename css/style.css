@@ -2,6 +2,24 @@ body {
     background-color: tomato;
 }
 
+#app {
+    display: flex;
+    flex-direction: column;
+    max-width: 388px;
+}
+
+#app > * {
+    display: flex;
+}
+
+#app > * > * {
+    flex-grow: 2;
+}
+
+.letter-button {
+    max-width: 30px;
+}
+
 .active {
     background-color: tomato;
     color: white;
