@@ -13,11 +13,15 @@ body {
 }
 
 #app > * > * {
-    flex-grow: 2;
+    flex-grow: 1;
 }
 
 .letter-button {
     max-width: 30px;
+}
+
+.space-button {
+    flex-grow: 6 !important;
 }
 
 .active {

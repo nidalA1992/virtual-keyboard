@@ -11,11 +11,13 @@ import {
   DELETE_BUTTON,
   ENTER_BUTTON,
   SHIFT,
+  SPACE_BUTTON,
 } from "../keyCodes.js";
 import ControlButton from "./ControlButton.js";
 import AltButton from "./AltButton.js";
 import DeleteButton from "./DeleteButton.js";
 import EnterButton from "./EnterButton.js";
+import SpaceButton from "./SpaceButton.js";
 
 export default class Keyboard {
   en = true;
@@ -58,6 +60,9 @@ export default class Keyboard {
       row.forEach((key) => {
         if (key.value) {
           switch (key.code) {
+            case SPACE_BUTTON:
+              this.keys[key.code] = new SpaceButton(' ');
+              break;
             case ENTER_BUTTON:
               this.keys[key.code] = new EnterButton('Enter');
               break;
