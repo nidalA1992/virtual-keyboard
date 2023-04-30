@@ -1,26 +1,15 @@
 import {AbstractButton} from "./AbstractButton.js";
 
-export class LetterButton extends AbstractButton {
-  constructor(value) {
+export class BehaviorButton extends AbstractButton {
+  constructor(value, keyboard, isActive) {
     super();
-    this.value = value;
-    this.upper = false;
-
     this.element = document.createElement('button');
     this.element.setAttribute('data-key', value);
     this.element.textContent = value;
+    this.keyboard = keyboard;
 
     this.keydown = this.keydown.bind(this);
     this.keyup = this.keyup.bind(this);
-  }
-
-  keydown() {
-    this.element.classList.add('active');
-    document.getElementById('text').value = document.getElementById('text').value + this.element.dataset.key;
-  }
-
-  keyup() {
-    this.element.classList.remove('active');
   }
 
   init(container) {

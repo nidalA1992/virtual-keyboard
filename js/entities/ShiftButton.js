@@ -1,14 +1,9 @@
 import {AbstractButton} from "./AbstractButton.js";
+import {BehaviorButton} from "./BehaviorButton.js";
 
-export class ShiftButton extends AbstractButton {
+export class ShiftButton extends BehaviorButton {
   constructor(value, keyboard, isActive) {
-    super();
-    this.element = document.createElement('button');
-    this.element.setAttribute('data-key', value);
-    this.value = value;
-    this.keyboard = keyboard;
-
-    this.element.textContent = this.value;
+    super(value, keyboard);
     this.element.classList.toggle('active', isActive);
   }
 
@@ -24,12 +19,4 @@ export class ShiftButton extends AbstractButton {
     this.keyboard.shift = false;
     this.keyboard.render({shift: false});
   }
-
-  init(container) {
-    container.append(this.element);
-
-    this.element.addEventListener('mousedown', this.keydown);
-    this.element.addEventListener('mouseup', this.keyup);
-  }
-
 }

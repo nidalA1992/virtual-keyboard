@@ -43,7 +43,7 @@ export class Keyboard {
               break;
 
             case BACKSPACE:
-              this.keys[key.code] = new BackspaceButton('Backspace', this, this.shift);
+              this.keys[key.code] = new BackspaceButton('Backspace');
               break;
           }
 
