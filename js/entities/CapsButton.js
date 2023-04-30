@@ -16,7 +16,6 @@ export class CapsButton extends AbstractButton {
   }
 
   keydown() {
-    this.element.classList.toggle('active');
     this.keyboard.caps = !this.keyboard.caps;
     this.keyboard.render({caps: this.keyboard.caps});
   }

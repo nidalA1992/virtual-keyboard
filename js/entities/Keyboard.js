@@ -1,14 +1,18 @@
 import {keys} from "../keys.js";
 import {LetterButton} from "./LetterButton.js";
 import {CapsButton} from "./CapsButton.js";
+import {ShiftButton} from "./ShiftButton.js";
 
 export class Keyboard {
   en = true;
   shift = false;
   caps = false;
 
-  constructor() {
+  constructor(display) {
     this.keys = {};
+
+    this.display = document.getElementById('text');
+
 
     this.eventKeyDown = this.eventKeyDown.bind(this);
     this.eventKeyUp = this.eventKeyUp.bind(this);
@@ -23,7 +27,8 @@ export class Keyboard {
     this.en = options?.en || this.en;
     this.shift = options?.shift || this.shift;
     this.caps = options?.caps || this.caps;
-    this.keys = {};
+    // this.keys = {};
+
 
     keys.forEach(row => {
       row.forEach(key => {
@@ -33,18 +38,34 @@ export class Keyboard {
             case 'CapsLock':
               this.keys[key.value] = new CapsButton('Caps Lock', this, this.caps);
               break;
+
+            case 'ShiftLeft':
+            case 'ShiftRight':
+              this.keys[key.value] = new ShiftButton('Shift', this, this.shift);
           }
 
           this.keys[key.value]?.init(this.container);
         } else {
-          let i = this.en ? key.en : key.ru;
-          i = this.caps ? i.toUpperCase() : i;
 
-          this.keys[i] = new LetterButton(key);
-          this.caps ? this.keys[i].toUpperCase() : this.keys[i].toLowerCase()
+          let i;
+          if (this.shift) {
+            i = this.en ? key.shEn : key.shRu;
+          } else {
+            i = this.en ? key.en : key.ru;
+          }
+
+          if (this.caps) {
+            i = i.toUpperCase();
+          }
+
+          if (this.caps && this.shift) {
+            i = i.toLowerCase();
+          }
+
+          this.keys[i] = new LetterButton(i);
           this.keys[i].init(this.container);
-        }
 
+        }
       });
 
       this.container.append(document.createElement('br'));
@@ -52,13 +73,6 @@ export class Keyboard {
 
     window.addEventListener('keydown', this.eventKeyDown);
     window.addEventListener('keyup', this.eventKeyUp);
-  }
-
-  get layout() {
-    return this.en && this.shift ?  'shiftEn' :
-           this.en && !this.shift ? 'en'     :
-           !this.en && this.shift ? 'shiftRu':
-                                    'ru';
   }
 
   init(container) {
