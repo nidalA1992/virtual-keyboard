@@ -3,11 +3,9 @@ import {AbstractButton} from "./AbstractButton.js";
 export class CapsButton extends AbstractButton {
   constructor(value, keyboard, isActive) {
     super();
-
     this.element = document.createElement('button');
     this.element.setAttribute('data-key', value);
     this.element.textContent = value;
-
     this.keyboard = keyboard;
 
     this.element.classList.toggle('active', isActive);
@@ -21,9 +19,7 @@ export class CapsButton extends AbstractButton {
     this.keyboard.render({caps: this.keyboard.caps});
   }
 
-  keyup() {
-
-  }
+  keyup() {}
 
   init(container) {
     container.append(this.element);

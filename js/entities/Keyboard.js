@@ -2,9 +2,11 @@ import {keys} from "../keys.js";
 import {LetterButton} from "./LetterButton.js";
 import {CapsButton} from "./CapsButton.js";
 import {ShiftButton} from "./ShiftButton.js";
+import {BACKSPACE, CAPS_LOCK, SHIFT} from "../keyCodes.js";
+import {BackspaceButton} from "./BackspaceButton.js";
 
 export class Keyboard {
-  en = false;
+  en = true;
   shift = false;
   caps = false;
 
@@ -23,7 +25,7 @@ export class Keyboard {
 
     this.container.innerHTML = '';
 
-    this.en = options?.en || this.en;
+    // this.en = options?.en || this.en;
     this.shift = options?.shift || this.shift;
     this.caps = options?.caps || this.caps;
 
@@ -32,12 +34,17 @@ export class Keyboard {
         if (key.value) {
 
           switch (key.code) {
-            case 20:
+            case CAPS_LOCK:
               this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
               break;
 
-            case 16:
+            case SHIFT:
               this.keys[key.code] = new ShiftButton('Shift', this, this.shift);
+              break;
+
+            case BACKSPACE:
+              this.keys[key.code] = new BackspaceButton('Backspace', this, this.shift);
+              break;
           }
 
           this.keys[key.code]?.init(this.container);

@@ -39,10 +39,10 @@ export const keys = [
       en: '-', shEn: '_', ru: '-', shRu: '_', code: 189
     },
     {
-      en: '=', shEn: '+', ru: '=', shRu: '+', code: 107
+      en: '=', shEn: '+', ru: '=', shRu: '+', code: 187
     },
     {
-      value: 'Backspace', code: 9
+      value: 'Backspace', code: 8
     },
   ],
   [

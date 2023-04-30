@@ -1,28 +1,25 @@
 import {AbstractButton} from "./AbstractButton.js";
 
-export class ShiftButton extends AbstractButton {
+export class BackspaceButton extends AbstractButton {
   constructor(value, keyboard, isActive) {
     super();
     this.element = document.createElement('button');
     this.element.setAttribute('data-key', value);
-    this.value = value;
+    this.element.textContent = value;
     this.keyboard = keyboard;
 
-    this.element.textContent = this.value;
     this.element.classList.toggle('active', isActive);
+    this.keydown = this.keydown.bind(this);
+    this.keyup = this.keyup.bind(this);
   }
 
   keydown() {
-    if (this.keyboard.shift) {
-      return;
-    }
-    this.keyboard.shift = true;
-    this.keyboard.render({shift: true});
+    this.element.classList.add('active');
+    document.getElementById('text').value = document.getElementById('text').value.substring(0, document.getElementById('text').value.length - 1);
   }
 
   keyup() {
-    this.keyboard.shift = false;
-    this.keyboard.render({shift: false});
+    this.element.classList.remove('active');
   }
 
   init(container) {
@@ -31,5 +28,4 @@ export class ShiftButton extends AbstractButton {
     this.element.addEventListener('mousedown', this.keydown);
     this.element.addEventListener('mouseup', this.keyup);
   }
-
 }

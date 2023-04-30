@@ -37,7 +37,6 @@ export class LetterButton extends AbstractButton {
   keydown() {
     this.element.classList.add('active');
     document.getElementById('text').value = document.getElementById('text').value + this.element.dataset.key;
-
   }
 
   keyup() {
