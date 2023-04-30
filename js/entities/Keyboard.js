@@ -3,7 +3,15 @@ import CapsButton from "./CapsButton.js";
 import ShiftButton from "./ShiftButton.js";
 import BackspaceButton from "./BackspaceButton.js";
 import keys from "../keys.js";
-import { BACKSPACE, CAPS_LOCK, SHIFT } from "../keyCodes.js";
+import {
+  ALT_BUTTON,
+  BACKSPACE,
+  CAPS_LOCK,
+  CONTROL_BUTTON,
+  SHIFT,
+} from "../keyCodes.js";
+import ControlButton from "./ControlButton.js";
+import AltButton from "./AltButton.js";
 
 export default class Keyboard {
   en = true;
@@ -11,6 +19,10 @@ export default class Keyboard {
   shift = false;
 
   caps = false;
+
+  ctrl = false;
+
+  alt = false;
 
   constructor() {
     this.keys = {};
@@ -21,18 +33,24 @@ export default class Keyboard {
     this.eventKeyUp = this.eventKeyUp.bind(this);
   }
 
+  lang() {
+    if (this.ctrl && this.alt) {
+      this.en = !this.en;
+      this.render();
+    }
+  }
+
   render(options) {
     window.removeEventListener('keydown', this.eventKeyDown);
     window.removeEventListener('keyup', this.eventKeyUp);
 
     this.container.innerHTML = '';
 
-    // this.en = options?.en || this.en;
     this.shift = options?.shift || this.shift;
     this.caps = options?.caps || this.caps;
 
-    keys.forEach(row => {
-      row.forEach(key => {
+    keys.forEach((row) => {
+      row.forEach((key) => {
         if (key.value) {
           switch (key.code) {
             case CAPS_LOCK:
@@ -47,6 +65,14 @@ export default class Keyboard {
               this.keys[key.code] = new BackspaceButton('Backspace');
               break;
 
+            case CONTROL_BUTTON:
+              this.keys[key.value] = new ControlButton('Ctrl', this);
+              this.keys[key.value]?.init(this.container);
+              return;
+            case ALT_BUTTON:
+              this.keys[key.value] = new AltButton('Alt', this);
+              this.keys[key.value]?.init(this.container);
+              return;
             default:
               break;
           }
@@ -87,11 +113,33 @@ export default class Keyboard {
 
   eventKeyDown(e) {
     e.preventDefault();
+
+    if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
+      this.keydown(e.code);
+      return;
+    }
+
+    if (e.code === 'AltLeft' || e.code === 'AltRight') {
+      this.keydown(e.code);
+      return;
+    }
+
     this.keydown(e.keyCode);
   }
 
   eventKeyUp(e) {
     e.preventDefault();
+
+    if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
+      this.keyup(e.code);
+      return;
+    }
+
+    if (e.code === 'AltLeft' || e.code === 'AltRight') {
+      this.keyup(e.code);
+      return;
+    }
+
     this.keyup(e.keyCode);
   }
 

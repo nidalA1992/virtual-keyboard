@@ -12,6 +12,14 @@ export default class BehaviorButton extends AbstractButton {
     this.keyup = this.keyup.bind(this);
   }
 
+  keydown() {
+    this.element.classList.add('active');
+  }
+
+  keyup() {
+    this.element.classList.remove('active');
+  }
+
   init(container) {
     container.append(this.element);
 
