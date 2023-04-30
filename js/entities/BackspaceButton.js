@@ -3,7 +3,9 @@ import BehaviorButton from "./BehaviorButton.js";
 export default class BackspaceButton extends BehaviorButton {
   keydown() {
     this.element.classList.add('active');
-    document.getElementById('text').value = document.getElementById('text').value.substring(0, document.getElementById('text').value.length - 1);
+
+    const display = document.getElementById('text');
+    display.value = display.value.substring(0, display.value.length - 1);
   }
 
   keyup() {

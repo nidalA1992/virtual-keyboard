@@ -54,7 +54,7 @@ export default class Keyboard {
     window.removeEventListener('keydown', this.eventKeyDown);
     window.removeEventListener('keyup', this.eventKeyUp);
 
-    this.container.innerHTML = '';
+    this.keyboard.innerHTML = '';
 
     this.shift = options?.shift || this.shift;
     this.caps = options?.caps || this.caps;
@@ -122,7 +122,7 @@ export default class Keyboard {
         }
       });
 
-      this.container.append(wrapper);
+      this.keyboard.append(wrapper);
     });
 
     window.addEventListener('keydown', this.eventKeyDown);
@@ -131,6 +131,15 @@ export default class Keyboard {
 
   init(container) {
     this.container = container;
+    this.keyboard = document.createElement('div');
+    this.display = document.createElement('textarea');
+
+    this.keyboard.classList.add('keyboard');
+    this.display.classList.add('display');
+    this.display.id = 'text';
+
+    this.container.append(this.display);
+    this.container.append(this.keyboard);
     this.render();
   }
 
@@ -162,11 +171,6 @@ export default class Keyboard {
 
   eventKeyUp(e) {
     e.preventDefault();
-    // if (e.code === 'MetaLeft' || e.code === 'MetaRight') {
-    //   this.keyup(e.keyCode);
-    //   return;
-    // }
-
     if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
       this.keyup(e.code);
       return;
