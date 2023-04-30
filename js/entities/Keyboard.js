@@ -1,16 +1,18 @@
-import {keys} from "../keys.js";
-import {LetterButton} from "./LetterButton.js";
-import {CapsButton} from "./CapsButton.js";
-import {ShiftButton} from "./ShiftButton.js";
-import {BACKSPACE, CAPS_LOCK, SHIFT} from "../keyCodes.js";
-import {BackspaceButton} from "./BackspaceButton.js";
+import LetterButton from "./LetterButton.js";
+import CapsButton from "./CapsButton.js";
+import ShiftButton from "./ShiftButton.js";
+import BackspaceButton from "./BackspaceButton.js";
+import keys from "../keys.js";
+import { BACKSPACE, CAPS_LOCK, SHIFT } from "../keyCodes.js";
 
-export class Keyboard {
+export default class Keyboard {
   en = true;
+
   shift = false;
+
   caps = false;
 
-  constructor(display) {
+  constructor() {
     this.keys = {};
 
     this.display = document.getElementById('text');
@@ -32,7 +34,6 @@ export class Keyboard {
     keys.forEach(row => {
       row.forEach(key => {
         if (key.value) {
-
           switch (key.code) {
             case CAPS_LOCK:
               this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
@@ -45,11 +46,13 @@ export class Keyboard {
             case BACKSPACE:
               this.keys[key.code] = new BackspaceButton('Backspace');
               break;
+
+            default:
+              break;
           }
 
           this.keys[key.code]?.init(this.container);
         } else {
-
           let i;
           if (this.shift) {
             i = this.en ? key.shEn : key.shRu;
@@ -67,7 +70,6 @@ export class Keyboard {
 
           this.keys[key.code] = new LetterButton(i);
           this.keys[key.code].init(this.container);
-
         }
       });
 

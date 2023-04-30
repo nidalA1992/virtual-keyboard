@@ -1,7 +1,7 @@
-import {AbstractButton} from "./AbstractButton.js";
+import AbstractButton from "./AbstractButton.js";
 
-export class BehaviorButton extends AbstractButton {
-  constructor(value, keyboard, isActive) {
+export default class BehaviorButton extends AbstractButton {
+  constructor(value, keyboard) {
     super();
     this.element = document.createElement('button');
     this.element.setAttribute('data-key', value);

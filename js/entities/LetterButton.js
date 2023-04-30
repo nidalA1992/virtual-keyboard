@@ -1,6 +1,6 @@
-import {AbstractButton} from "./AbstractButton.js";
+import AbstractButton from "./AbstractButton.js";
 
-export class LetterButton extends AbstractButton {
+export default class LetterButton extends AbstractButton {
   constructor(value) {
     super();
     this.value = value;

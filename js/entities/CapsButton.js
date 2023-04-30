@@ -1,6 +1,6 @@
 import {BehaviorButton} from "./BehaviorButton.js";
 
-export class CapsButton extends BehaviorButton {
+export default class CapsButton extends BehaviorButton {
   constructor(value, keyboard, isActive) {
     super(value, keyboard);
     this.element.classList.toggle('active', isActive);
@@ -9,8 +9,10 @@ export class CapsButton extends BehaviorButton {
   keydown() {
     this.element.classList.toggle('active');
     this.keyboard.caps = !this.keyboard.caps;
-    this.keyboard.render({caps: this.keyboard.caps});
+    this.keyboard.render({ caps: this.keyboard.caps });
   }
 
-  keyup() {}
+  keyup() {
+    super.keyup();
+  }
 }

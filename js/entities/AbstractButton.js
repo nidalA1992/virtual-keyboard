@@ -1,13 +1,13 @@
-export class AbstractButton {
+export default class AbstractButton {
   keydown() {
-    throw new Error('Implement this method');
+    return this;
   }
 
   keyup() {
-    throw new Error('Implement this method');
+    return this;
   }
 
   init() {
-    throw new Error('Implement this method');
+    return this;
   }
 }
