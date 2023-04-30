@@ -8,10 +8,12 @@ import {
   BACKSPACE,
   CAPS_LOCK,
   CONTROL_BUTTON,
+  DELETE_BUTTON,
   SHIFT,
 } from "../keyCodes.js";
 import ControlButton from "./ControlButton.js";
 import AltButton from "./AltButton.js";
+import DeleteButton from "./DeleteButton.js";
 
 export default class Keyboard {
   en = true;
@@ -53,6 +55,10 @@ export default class Keyboard {
       row.forEach((key) => {
         if (key.value) {
           switch (key.code) {
+            case DELETE_BUTTON:
+              this.keys[key.code] = new DeleteButton('Del');
+              break;
+
             case CAPS_LOCK:
               this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
               break;
@@ -69,10 +75,12 @@ export default class Keyboard {
               this.keys[key.value] = new ControlButton('Ctrl', this);
               this.keys[key.value]?.init(this.container);
               return;
+
             case ALT_BUTTON:
               this.keys[key.value] = new AltButton('Alt', this);
               this.keys[key.value]?.init(this.container);
               return;
+
             default:
               break;
           }
@@ -112,6 +120,11 @@ export default class Keyboard {
   }
 
   eventKeyDown(e) {
+    if (e.code === 'Delete') {
+      this.keydown(e.keyCode);
+      return;
+    }
+
     e.preventDefault();
 
     if (e.code === 'ControlLeft' || e.code === 'ControlRight') {

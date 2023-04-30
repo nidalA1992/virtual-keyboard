@@ -197,6 +197,9 @@ const keys = [
     {
       value: 'ArrowRight', code: 39,
     },
+    {
+      value: 'Delete', code: 46,
+    },
   ],
 ];
 
