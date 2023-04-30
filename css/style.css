@@ -10,28 +10,39 @@ body {
   box-sizing: border-box;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 5px;
+  margin-block: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: aqua;
+  background-color: #ffffff11;
+  border-radius: 10px;
+
 }
 
 ::-webkit-scrollbar-track {
   width: 5px;
+  margin-block: 12px;
+
   background-color: transparent;
-} */
+}
 
 #text {
   position: absolute;
   width: 580px;
-  height: 200px;
-  top: 5%;
+  height: 230px;
+  top: 3%;
   left: 50%;
   transform: translateX(-50%);
   resize: none;
+  border-radius: 20px;
   overflow-y: scroll;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  outline: none;
+  border-color: #ffffff11;
+  padding: 10px;
 }
 
 #app {
@@ -60,7 +71,7 @@ body {
   padding: 15px;
   border-radius: 20px;
   width: 580px;
-  border: 1px solid #ffffffcc;
+  border: 1px solid #ffffff11;
   backdrop-filter: blur(15px);
 }
 
@@ -70,12 +81,13 @@ body {
 }
 
 .keyboard button {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
   padding: 5px 7px;
-  border: 1px solid #ffffffcc;
+  border: 1px solid #ffffff33;
   font-size: 22px;
   line-height: 1;
 
@@ -85,7 +97,24 @@ body {
 
   font-family: 'Amatic SC', cursive;    
 
-  transition: 200ms ease-in;
+  transition: 150ms ease;
+  cursor: pointer;
+
+}
+
+.keyboard button::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  inset: 0;
+  box-shadow: 0 0 10px 0 #ffffff44;
+  opacity: 0;
+
+  transition: 150ms ease;
+}
+
+.keyboard button:hover {
+  background-color: #ffffff22 !important;
 }
 
 .letter-button {
@@ -105,4 +134,8 @@ body {
 .active {
   background-color: #ffffffcc !important;
   color: black !important;
+}
+
+.keyboard button.active::before {
+  opacity: 1;
 }
