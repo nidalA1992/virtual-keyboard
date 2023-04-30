@@ -9,9 +9,15 @@ export class Keyboard {
 
   constructor() {
     this.keys = {};
+
+    this.eventKeyDown = this.eventKeyDown.bind(this);
+    this.eventKeyUp = this.eventKeyUp.bind(this);
   }
 
   render(options) {
+    window.removeEventListener('keydown', this.eventKeyDown);
+    window.removeEventListener('keyup', this.eventKeyUp);
+
     this.container.innerHTML = '';
 
     this.en = options?.en || this.en;
@@ -31,7 +37,8 @@ export class Keyboard {
 
           this.keys[key.value]?.init(this.container);
         } else {
-          const i = this.en ? key.en : key.ru;
+          let i = this.en ? key.en : key.ru;
+          i = this.caps ? i.toUpperCase() : i;
 
           this.keys[i] = new LetterButton(key);
           this.caps ? this.keys[i].toUpperCase() : this.keys[i].toLowerCase()
@@ -42,6 +49,9 @@ export class Keyboard {
 
       this.container.append(document.createElement('br'));
     });
+
+    window.addEventListener('keydown', this.eventKeyDown);
+    window.addEventListener('keyup', this.eventKeyUp);
   }
 
   get layout() {
@@ -54,6 +64,18 @@ export class Keyboard {
   init(container) {
     this.container = container;
     this.render();
+  }
+
+  eventKeyDown(e) {
+    e.preventDefault();
+    const code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
+    this.keydown(code);
+  }
+
+  eventKeyUp(e) {
+    e.preventDefault();
+    const code = e.key.length > 1 || e.key === ' ' ? e.code : e.key;
+    this.keyup(code);
   }
 
   keydown(code) {
