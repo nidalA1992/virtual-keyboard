@@ -68,13 +68,13 @@ export default class Keyboard {
               this.keys[key.code] = new MetaButton('Meta');
               break;
             case TAB_BUTTON:
-              this.keys[key.code] = new TabButton('Tab ');
+              this.keys[key.code] = new TabButton('Tab ⭾');
               break;
             case SPACE_BUTTON:
               this.keys[key.code] = new SpaceButton(' ');
               break;
             case ENTER_BUTTON:
-              this.keys[key.code] = new EnterButton('Enter');
+              this.keys[key.code] = new EnterButton('↵ Enter');
               break;
             case DELETE_BUTTON:
               this.keys[key.code] = new DeleteButton('Del');
@@ -83,10 +83,10 @@ export default class Keyboard {
               this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
               break;
             case SHIFT:
-              this.keys[key.code] = new ShiftButton('Shift', this, this.shift);
+              this.keys[key.code] = new ShiftButton('⇧ Shift', this, this.shift);
               break;
             case BACKSPACE:
-              this.keys[key.code] = new BackspaceButton('Backspace');
+              this.keys[key.code] = new BackspaceButton('⇦ Backspace');
               break;
             case CONTROL_BUTTON:
               this.keys[key.value] = new ControlButton('Ctrl', this);
