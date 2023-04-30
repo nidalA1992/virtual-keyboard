@@ -12,12 +12,14 @@ import {
   ENTER_BUTTON,
   SHIFT,
   SPACE_BUTTON,
+  TAB_BUTTON,
 } from "../keyCodes.js";
 import ControlButton from "./ControlButton.js";
 import AltButton from "./AltButton.js";
 import DeleteButton from "./DeleteButton.js";
 import EnterButton from "./EnterButton.js";
 import SpaceButton from "./SpaceButton.js";
+import TabButton from "./TabButton.js";
 
 export default class Keyboard {
   en = true;
@@ -60,6 +62,9 @@ export default class Keyboard {
       row.forEach((key) => {
         if (key.value) {
           switch (key.code) {
+            case TAB_BUTTON:
+              this.keys[key.code] = new TabButton('Tab');
+              break;
             case SPACE_BUTTON:
               this.keys[key.code] = new SpaceButton(' ');
               break;
@@ -72,25 +77,20 @@ export default class Keyboard {
             case CAPS_LOCK:
               this.keys[key.code] = new CapsButton('Caps Lock', this, this.caps);
               break;
-
             case SHIFT:
               this.keys[key.code] = new ShiftButton('Shift', this, this.shift);
               break;
-
             case BACKSPACE:
               this.keys[key.code] = new BackspaceButton('Backspace');
               break;
-
             case CONTROL_BUTTON:
               this.keys[key.value] = new ControlButton('Ctrl', this);
               this.keys[key.value]?.init(wrapper);
               return;
-
             case ALT_BUTTON:
               this.keys[key.value] = new AltButton('Alt', this);
               this.keys[key.value]?.init(wrapper);
               return;
-
             default:
               break;
           }
