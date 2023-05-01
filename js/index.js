@@ -1,4 +1,4 @@
-import Keyboard from './entities/Keyboard';
+import Keyboard from './entities/Keyboard.js';
 
 const app = document.getElementById('app');
 
