@@ -18,7 +18,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #ffffff11;
   border-radius: 10px;
-
 }
 
 ::-webkit-scrollbar-track {
@@ -29,7 +28,6 @@ body {
 }
 
 #text {
-  /* position: absolute; */
   width: 580px;
   height: 230px;
 
