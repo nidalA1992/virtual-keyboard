@@ -1,8 +1,8 @@
-import LetterButton from './LetterButton';
-import CapsButton from './CapsButton';
-import ShiftButton from './ShiftButton';
-import BackspaceButton from './BackspaceButton';
-import keys from '../keys';
+import LetterButton from './LetterButton.js';
+import CapsButton from './CapsButton.js';
+import ShiftButton from './ShiftButton.js';
+import BackspaceButton from './BackspaceButton.js';
+import keys from '../keys.js';
 import {
   ALT_BUTTON,
   BACKSPACE,
@@ -14,14 +14,14 @@ import {
   SHIFT,
   SPACE_BUTTON,
   TAB_BUTTON,
-} from '../keyCodes';
-import ControlButton from './ControlButton';
-import AltButton from './AltButton';
-import DeleteButton from './DeleteButton';
-import EnterButton from './EnterButton';
-import SpaceButton from './SpaceButton';
-import TabButton from './TabButton';
-import MetaButton from './MetaButton';
+} from '../keyCodes.js';
+import ControlButton from './ControlButton.js';
+import AltButton from './AltButton.js';
+import DeleteButton from './DeleteButton.js';
+import EnterButton from './EnterButton.js';
+import SpaceButton from './SpaceButton.js';
+import TabButton from './TabButton.js';
+import MetaButton from './MetaButton.js';
 
 export default class Keyboard {
   shift = false;

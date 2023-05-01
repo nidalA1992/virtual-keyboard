@@ -1,4 +1,4 @@
-import AbstractButton from './AbstractButton';
+import AbstractButton from './AbstractButton.js';
 
 export default class BehaviorButton extends AbstractButton {
   constructor(value, keyboard) {

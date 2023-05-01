@@ -1,4 +1,4 @@
-import BehaviorButton from './BehaviorButton';
+import BehaviorButton from './BehaviorButton.js';
 
 export default class ControlButton extends BehaviorButton {
   keydown() {
