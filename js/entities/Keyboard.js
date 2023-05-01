@@ -153,6 +153,10 @@ export default class Keyboard {
   }
 
   eventKeyDown(e) {
+    if (e.code.includes('Num')) {
+      return;
+    }
+
     if (e.code === 'MetaLeft' || e.code === 'MetaRight') {
       this.keydown(e.keyCode);
       return;
