@@ -1,4 +1,4 @@
-import BehaviorButton from "./BehaviorButton.js";
+import BehaviorButton from './BehaviorButton';
 
 export default class BackspaceButton extends BehaviorButton {
   keydown() {

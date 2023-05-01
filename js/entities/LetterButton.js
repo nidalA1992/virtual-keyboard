@@ -1,4 +1,4 @@
-import AbstractButton from "./AbstractButton.js";
+import AbstractButton from './AbstractButton';
 
 export default class LetterButton extends AbstractButton {
   constructor(value) {
@@ -17,7 +17,8 @@ export default class LetterButton extends AbstractButton {
 
   keydown() {
     this.element.classList.add('active');
-    document.getElementById('text').value = document.getElementById('text').value + this.element.dataset.key;
+    const display = document.getElementById('text');
+    display.value += this.element.dataset.key;
   }
 
   keyup() {

@@ -1,4 +1,4 @@
-import BehaviorButton from "./BehaviorButton.js";
+import BehaviorButton from './BehaviorButton';
 
 export default class EnterButton extends BehaviorButton {
   constructor(value, keyboard) {
