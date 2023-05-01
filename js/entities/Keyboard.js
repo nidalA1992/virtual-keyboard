@@ -134,12 +134,21 @@ export default class Keyboard {
     this.keyboard = document.createElement('div');
     this.display = document.createElement('textarea');
 
+    const notification = document.createElement('p');
+    notification.classList.add('notification');
+    notification.innerHTML = `
+      *Для переключения раскладки клавиатуры используйте комбинацию клавиш <b>ctrl+alt</b><br>
+      *Клавиатура создана в операционной системе <b>Windows 10</b>
+    `;
+
     this.keyboard.classList.add('keyboard');
     this.display.classList.add('display');
     this.display.id = 'text';
 
     this.container.append(this.display);
     this.container.append(this.keyboard);
+    this.container.append(notification);
+
     this.render();
   }
 

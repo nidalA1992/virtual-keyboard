@@ -128,3 +128,12 @@ body {
   background-color: #ffffffcc !important;
   color: black !important;
 }
+
+.notification {
+  color: #ffffffcc;
+  font-size: 16px;
+  font-family: 'Amatic SC', cursive;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
