@@ -24,8 +24,6 @@ import TabButton from "./TabButton.js";
 import MetaButton from "./MetaButton.js";
 
 export default class Keyboard {
-  en = true;
-
   shift = false;
 
   caps = false;
@@ -39,6 +37,10 @@ export default class Keyboard {
 
     this.display = document.getElementById('text');
 
+    const lang = JSON.parse(localStorage.getItem('lang'));
+    console.log(lang)
+    this.en = lang === null ? true : lang;
+
     this.eventKeyDown = this.eventKeyDown.bind(this);
     this.eventKeyUp = this.eventKeyUp.bind(this);
   }
@@ -46,6 +48,7 @@ export default class Keyboard {
   lang() {
     if (this.ctrl && this.alt) {
       this.en = !this.en;
+      localStorage.setItem('lang', JSON.stringify(this.en));
       this.render();
     }
   }
