@@ -1,0 +1,138 @@
+body {
+  background-image: url("../assets/back.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  margin-block: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff11;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  width: 5px;
+  margin-block: 12px;
+
+  background-color: transparent;
+}
+
+#text {
+  width: 580px;
+  height: 230px;
+
+  resize: none;
+  border-radius: 20px;
+  overflow-y: scroll;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  outline: none;
+  border-color: #ffffff11;
+  padding: 10px;
+  color: white;
+}
+
+#app {
+  position: relative;
+
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.keyboard {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 20px;
+  width: 580px;
+  border: 1px solid #ffffff11;
+  backdrop-filter: blur(15px);
+}
+
+.keyboard div {
+  display: flex;
+  gap: 3px;
+}
+
+.keyboard button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 5px 7px;
+  border: 1px solid #ffffff33;
+  font-size: 20px;
+  line-height: 1;
+
+  background-color: transparent;
+  border-radius: 15px;
+  color: #ffffffcc;
+
+  font-family: 'Amatic SC', cursive;    
+
+  transition: 150ms ease;
+  cursor: pointer;
+
+}
+
+.keyboard button:hover {
+  background-color: #ffffff22 !important;
+}
+
+.keyboard button:active {
+  background-color: #ffffffcc !important;
+  color: black !important;
+}
+
+.letter-button {
+  flex-grow: 0 !important;
+  width: 30px;
+  height: 30px;
+  font-size: 22px !important;
+}
+
+.space-button {
+  flex-grow: 6 !important;
+}
+
+.enter-button {
+  flex-grow: 3 !important;
+}
+
+.active {
+  background-color: #ffffffcc !important;
+  color: black !important;
+}
+
+.notification {
+  color: #ffffffcc;
+  font-size: 16px;
+  font-family: 'Amatic SC', cursive;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
